@@ -6,22 +6,24 @@
 
 ##Takes an nxn matrix 'mat' and returns a list of
 ##functions that allow setting and getting of said
-##matrix/its inverse. 
+##matrix/its inverse. Default value of input matrix is 
+## an empty matrix. 
 makeCacheMatrix <- function(mat = matrix()) {
   i <- NULL ##will store the inverse. 
   
-  set <- function(y){
+  set <- function(y){ ##sets the matrix
     mat <<- y
     i <<- NULL
   }
   
-  get <- function() mat
+  get <- function() mat ##gets the matrix
   
-  setInv <- function(inv) {
+  setInv <- function(inv) { ##sets the inverse
     i <<- inv
   }
-  getInv <- function() i
+  getInv <- function() i ##returns the current value of the inverse
   
+  ##returns a list of the above variables with named arguments
   list(set = set, get = get,
        setInv = setInv, getInv = getInv)
 }
